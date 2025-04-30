@@ -1,36 +1,102 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Kenny Almeida - Website
 
-## Getting Started
+Website profissional para Kenny Almeida, especialista em marketing digital.
 
-First, run the development server:
+## Características
+
+- Design moderno e responsivo
+- Otimizado para SEO
+- Fácil de personalizar
+- Componentes reutilizáveis
+- Integração com GitHub Pages
+
+## Tecnologias Utilizadas
+
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+- React Icons
+
+## Configuração do Ambiente
+
+1. Clone o repositório:
+
+```bash
+git clone https://github.com/diogocoutinho/kennyalmeida.github.io.git
+cd kennyalmeida.github.io
+```
+
+2. Instale as dependências:
+
+```bash
+npm install
+```
+
+3. Execute o projeto em modo desenvolvimento:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Acesse o site em: [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Personalização
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Cores
 
-## Learn More
+As cores principais do site podem ser alteradas no arquivo `src/app/globals.css`:
 
-To learn more about Next.js, take a look at the following resources:
+```css
+:root {
+  --foreground-rgb: 43, 45, 66; /* Cor principal (azul escuro) */
+  --background-rgb: 255, 255, 255; /* Cor de fundo */
+}
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Conteúdo
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+O conteúdo do site pode ser personalizado editando os seguintes arquivos:
 
-## Deploy on Vercel
+- `src/components/Hero.tsx` - Seção principal
+- `src/components/Services.tsx` - Serviços oferecidos
+- `src/components/About.tsx` - Sobre o profissional
+- `src/components/Testimonials.tsx` - Depoimentos
+- `src/components/Contact.tsx` - Formulário de contato
+- `src/components/CTA.tsx` - Chamadas para ação
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Imagens
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Substitua as imagens na pasta `public/`:
+
+- `hero-image.jpg` - Imagem principal
+- `about-image.jpg` - Imagem da seção sobre
+- `testimonial-1.jpg`, `testimonial-2.jpg`, `testimonial-3.jpg` - Fotos dos depoimentos
+
+## Deploy no GitHub Pages
+
+1. Configure o repositório no GitHub
+2. Instale a dependência `gh-pages`:
+
+```bash
+npm install gh-pages --save-dev
+```
+
+3. Adicione o script de deploy no `package.json`:
+
+```json
+"scripts": {
+  "deploy": "gh-pages -d out"
+}
+```
+
+4. Execute o build e deploy:
+
+```bash
+npm run build
+npm run deploy
+```
+
+## Licença
+
+Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
