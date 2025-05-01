@@ -1,5 +1,3 @@
-import { useCallback } from "react";
-
 export const smoothScroll = (href: string) => {
   // Verifica se estamos no navegador
   if (typeof window !== "undefined") {

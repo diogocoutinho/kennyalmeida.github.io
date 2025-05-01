@@ -1,6 +1,7 @@
 "use client";
 
 import { smoothScroll } from "@/utils/smoothScroll";
+import Link from "next/link";
 
 const navItems = [
   { label: "Início", href: "/" },
@@ -15,7 +16,7 @@ export default function Navbar() {
     <nav className="fixed top-0 left-0 right-0 bg-[#2B2D42] text-white py-4 shadow-lg z-50">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center">
-          <a
+          <Link
             href="/"
             onClick={(e) => {
               e.preventDefault();
@@ -24,10 +25,10 @@ export default function Navbar() {
             className="text-2xl font-bold"
           >
             Kenny Almeida
-          </a>
+          </Link>
           <div className="hidden md:flex space-x-8">
             {navItems.map((item) => (
-              <a
+              <Link
                 key={item.href}
                 href={item.href}
                 onClick={(e) => {
@@ -37,7 +38,7 @@ export default function Navbar() {
                 className="hover:text-[#EF233C] transition-colors duration-300"
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
           </div>
           <button className="md:hidden">
