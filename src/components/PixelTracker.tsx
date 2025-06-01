@@ -1,14 +1,22 @@
 "use client";
 
 import { useEffect } from "react";
-import ReactPixel from "react-facebook-pixel";
+import Script from "next/script";
 
 const PixelTracker = () => {
   useEffect(() => {
-    const pixelId = process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID!;
-    ReactPixel.init(pixelId);
-    ReactPixel.pageView();
+    if (typeof window !== "undefined") {
+      const pixelId = process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID;
+      if (pixelId) {
+        // @ts-ignore
+        window.fbq("init", pixelId);
+        // @ts-ignore
+        window.fbq("track", "PageView");
+      }
+    }
   }, []);
+
   return null;
 };
+
 export default PixelTracker;
