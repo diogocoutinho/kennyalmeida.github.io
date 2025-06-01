@@ -1,6 +1,44 @@
+"use client";
+
 import { FaEnvelope, FaPhone, FaMapMarkerAlt } from "react-icons/fa";
+import { useRef, useState } from "react";
+import emailjs from "@emailjs/browser";
 
 export default function Contact() {
+  const formRef = useRef<HTMLFormElement>(null);
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setError("");
+    setSuccess(false);
+
+    try {
+      if (!formRef.current) return;
+
+      await emailjs.sendForm(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        formRef.current,
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+      );
+
+      setSuccess(true);
+      formRef.current.reset();
+    } catch (err) {
+      console.log(err);
+      setError(
+        "Ocorreu um erro ao enviar a mensagem. Por favor, tente novamente."
+      );
+      console.error("Error sending email:", err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <section id="contact" className="py-20 bg-white">
       <div className="container mx-auto px-4">
@@ -14,7 +52,7 @@ export default function Contact() {
         </div>
         <div className="flex flex-col lg:flex-row gap-12">
           <div className="flex-1">
-            <form className="space-y-6">
+            <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="name" className="block text-gray-700 mb-2">
@@ -22,7 +60,9 @@ export default function Contact() {
                   </label>
                   <input
                     type="text"
+                    name="name"
                     id="name"
+                    required
                     className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#EF233C] focus:ring-2 focus:ring-[#EF233C] focus:ring-opacity-50"
                     placeholder="Seu nome"
                   />
@@ -33,7 +73,9 @@ export default function Contact() {
                   </label>
                   <input
                     type="email"
+                    name="email"
                     id="email"
+                    required
                     className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#EF233C] focus:ring-2 focus:ring-[#EF233C] focus:ring-opacity-50"
                     placeholder="seu@email.com"
                   />
@@ -45,7 +87,9 @@ export default function Contact() {
                 </label>
                 <input
                   type="text"
+                  name="subject"
                   id="subject"
+                  required
                   className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#EF233C] focus:ring-2 focus:ring-[#EF233C] focus:ring-opacity-50"
                   placeholder="Assunto da mensagem"
                 />
@@ -55,17 +99,26 @@ export default function Contact() {
                   Mensagem
                 </label>
                 <textarea
+                  name="message"
                   id="message"
+                  required
                   rows={6}
                   className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#EF233C] focus:ring-2 focus:ring-[#EF233C] focus:ring-opacity-50"
                   placeholder="Sua mensagem"
                 ></textarea>
               </div>
+              {error && <p className="text-red-500 text-sm">{error}</p>}
+              {success && (
+                <p className="text-green-500 text-sm">
+                  Mensagem enviada com sucesso!
+                </p>
+              )}
               <button
                 type="submit"
-                className="w-full bg-[#EF233C] hover:bg-[#D90429] text-white font-bold py-3 px-8 rounded-lg transition-colors duration-300"
+                disabled={loading}
+                className="w-full bg-[#EF233C] hover:bg-[#D90429] text-white font-bold py-3 px-8 rounded-lg transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                Enviar Mensagem
+                {loading ? "Enviando..." : "Enviar Mensagem"}
               </button>
             </form>
           </div>
