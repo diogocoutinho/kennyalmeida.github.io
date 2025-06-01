@@ -8,7 +8,7 @@ export default function FacebookPixel() {
   const { trackPageView } = useFacebookPixel();
 
   useEffect(() => {
-    if (typeof window !== "undefined" && window.fbq) {
+    if (typeof window !== "undefined") {
       trackPageView();
     }
   }, [trackPageView]);
