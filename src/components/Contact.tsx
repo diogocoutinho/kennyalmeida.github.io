@@ -3,12 +3,14 @@
 import { FaEnvelope, FaPhone, FaMapMarkerAlt } from "react-icons/fa";
 import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
+import { useFacebookPixel } from "@/hooks/useFacebookPixel";
 
 export default function Contact() {
   const formRef = useRef<HTMLFormElement>(null);
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
+  const { trackFormSubmit, trackContact } = useFacebookPixel();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -28,6 +30,8 @@ export default function Contact() {
 
       setSuccess(true);
       formRef.current.reset();
+      trackFormSubmit("contact_form");
+      trackContact("email");
     } catch (err) {
       console.log(err);
       setError(

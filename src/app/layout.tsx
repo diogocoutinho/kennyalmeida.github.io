@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import FloatingContactButton from "@/components/FloatingContactButton";
 import dynamic from "next/dynamic";
 import FacebookPixel from "@/components/FacebookPixel";
+import ScrollTracker from "@/components/ScrollTracker";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,6 +25,7 @@ export default function RootLayout({
     <html lang="pt-BR">
       <body className={inter.className}>
         <FacebookPixel />
+        <ScrollTracker />
         <Navbar />
         {children}
         <Footer />

@@ -2,12 +2,22 @@
 
 import { useState } from "react";
 import { FaWhatsapp, FaTelegram, FaTimes } from "react-icons/fa";
+import { useFacebookPixel } from "@/hooks/useFacebookPixel";
 
 export default function FloatingContactButton() {
   const [isOpen, setIsOpen] = useState(false);
+  const { trackWhatsAppClick, trackTelegramClick } = useFacebookPixel();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
+  };
+
+  const handleWhatsAppClick = () => {
+    trackWhatsAppClick();
+  };
+
+  const handleTelegramClick = () => {
+    trackTelegramClick();
   };
 
   return (
@@ -19,6 +29,7 @@ export default function FloatingContactButton() {
             target="_blank"
             rel="noopener noreferrer"
             className="bg-green-500 text-white p-3 rounded-full shadow-lg hover:bg-green-600 transition-colors duration-300 flex items-center gap-2"
+            onClick={handleWhatsAppClick}
           >
             <FaWhatsapp className="text-xl" />
             <span className="text-sm font-medium">WhatsApp</span>
@@ -28,6 +39,7 @@ export default function FloatingContactButton() {
             target="_blank"
             rel="noopener noreferrer"
             className="bg-blue-500 text-white p-3 rounded-full shadow-lg hover:bg-blue-600 transition-colors duration-300 flex items-center gap-2"
+            onClick={handleTelegramClick}
           >
             <FaTelegram className="text-xl" />
             <span className="text-sm font-medium">Telegram</span>
