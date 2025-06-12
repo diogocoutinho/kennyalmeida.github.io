@@ -12,6 +12,20 @@ export default function Footer() {
               © {new Date().getFullYear()} Kenny Almeida. Todos os direitos
               reservados.
             </p>
+            <div className="mt-2 space-x-4">
+              <Link
+                href="/politica-de-privacidade"
+                className="text-sm text-gray-300 hover:text-white transition-colors duration-300"
+              >
+                Política de Privacidade
+              </Link>
+              <Link
+                href="/termos-de-uso"
+                className="text-sm text-gray-300 hover:text-white transition-colors duration-300"
+              >
+                Termos de Uso
+              </Link>
+            </div>
           </div>
           <div className="text-center md:text-right">
             <p className="text-sm">
