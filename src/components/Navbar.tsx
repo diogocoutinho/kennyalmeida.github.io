@@ -2,16 +2,20 @@
 
 import { smoothScroll } from "@/utils/smoothScroll";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const navItems = [
   { label: "Início", href: "/" },
-  { label: "Serviços", href: "#services" },
-  { label: "Sobre", href: "#about" },
-  { label: "Depoimentos", href: "#testimonials" },
-  { label: "Contato", href: "#contact" },
+  { label: "Serviços", href: "/#services" },
+  { label: "Sobre", href: "/#about" },
+  { label: "Depoimentos", href: "/#testimonials" },
+  { label: "Contato", href: "/#contact" },
 ];
 
 export default function Navbar() {
+  const pathname = usePathname();
+  const isHomePage = pathname === "/";
+
   return (
     <nav className="fixed top-0 left-0 right-0 bg-[#2B2D42] text-white py-4 shadow-lg z-50">
       <div className="container mx-auto px-4">
@@ -19,8 +23,10 @@ export default function Navbar() {
           <Link
             href="/"
             onClick={(e) => {
-              e.preventDefault();
-              smoothScroll("/");
+              if (isHomePage) {
+                e.preventDefault();
+                smoothScroll("/");
+              }
             }}
             className="text-2xl font-bold"
           >
@@ -32,8 +38,10 @@ export default function Navbar() {
                 key={item.href}
                 href={item.href}
                 onClick={(e) => {
-                  e.preventDefault();
-                  smoothScroll(item.href);
+                  if (isHomePage && item.href.startsWith("/#")) {
+                    e.preventDefault();
+                    smoothScroll(item.href.replace("/", ""));
+                  }
                 }}
                 className="hover:text-[#EF233C] transition-colors duration-300"
               >
