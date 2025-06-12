@@ -16,6 +16,7 @@ const nextConfig: NextConfig = {
   experimental: {
     optimizePackageImports: ["tailwindcss"],
   },
+  trailingSlash: true,
 };
 
 export default nextConfig;
