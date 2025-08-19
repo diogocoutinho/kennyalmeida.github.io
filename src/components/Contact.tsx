@@ -143,7 +143,7 @@ export default function Contact() {
                   <FaPhone className="text-[#EF233C] text-xl mt-1 mr-4" />
                   <div>
                     <h4 className="font-bold text-gray-800">Telefone</h4>
-                    <p className="text-gray-600">(31) 99223-8899</p>
+                    <p className="text-gray-600">(31) 98265-7275</p>
                   </div>
                 </div>
                 <div className="flex items-start">

@@ -23,6 +23,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR">
+      <meta
+        name="facebook-domain-verification"
+        content="59tmj4fmcv9csexbw13i76n793u1gg"
+      />
       <body className={inter.className}>
         <FacebookPixel />
         <ScrollTracker />

@@ -3,25 +3,25 @@ import Image from "next/image";
 
 const testimonials = [
   {
-    name: "Carlos Silva",
-    role: "Empreendedor Digital",
+    name: "Helena Cerqueira",
+    role: "Empreendedora Digital",
     content:
-      "Em apenas 30 dias implementando o método Pay After Delivery, consegui minha primeira venda e hoje tenho um negócio totalmente automatizado. O suporte da mentoria foi fundamental!",
-    image: "https://eu.ui-avatars.com/api/?name=Carlos+Silva&size=250",
+      "A automação completa do WhatsApp implementada pela equipe transformou minhas vendas. Hoje, todo o processo de atendimento e fechamento acontece sem intervenção manual, e meus resultados aumentaram significativamente.",
+    image: "https://eu.ui-avatars.com/api/?name=Helena+Serqueira&size=250",
   },
   {
-    name: "Ana Oliveira",
-    role: "Mentorada",
+    name: "Gessica Oliveira",
+    role: "Gestora de E-commerce",
     content:
-      "A automação no WhatsApp mudou completamente meu negócio. Agora consigo atender dezenas de clientes por dia sem precisar ficar online 24 horas. Recomendo muito!",
-    image: "https://eu.ui-avatars.com/api/?name=Ana+Oliveira&size=250",
+      "A integração oficial com o WhatsApp Business fez toda diferença no meu atendimento. Consigo responder clientes com rapidez, automatizar mensagens e manter o relacionamento ativo sem esforço. Atendimento eficiente e clientes mais satisfeitos!",
+    image: "https://eu.ui-avatars.com/api/?name=Gessica+Oliveira&size=250",
   },
   {
-    name: "Roberto Santos",
-    role: "Aluno da Mentoria",
+    name: "Jessica Stefanie",
+    role: "Especialista em Tráfego Pago",
     content:
-      "O método é revolucionário! Sem precisar investir em estoque, consegui montar um negócio lucrativo em poucas semanas. A estrutura de tráfego pago é incrível!",
-    image: "https://eu.ui-avatars.com/api/?name=Roberto+Santos&size=250",
+      "Com a Meta Conversion API e o Pixel configurados corretamente, finalmente consegui rastrear todos os eventos das minhas campanhas. O suporte na validação do rastreio foi essencial para aumentar o ROI dos meus anúncios.",
+    image: "https://eu.ui-avatars.com/api/?name=Jessica+Stefanie&size=250",
   },
 ];
 
@@ -34,7 +34,7 @@ export default function Testimonials() {
             Resultados Reais
           </h2>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-            Depoimentos de quem já implementou o método Pay After Delivery
+            Depoimentos de quem já implementou os serviços e alcançou resultados reais
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
