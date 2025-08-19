@@ -136,7 +136,7 @@ export default function Contact() {
                   <FaEnvelope className="text-[#EF233C] text-xl mt-1 mr-4" />
                   <div>
                     <h4 className="font-bold text-gray-800">Email</h4>
-                    <p className="text-gray-600">contato@kennyalmeida.com</p>
+                    <p className="text-gray-600">contato@kennyalmeida.com.br</p>
                   </div>
                 </div>
                 <div className="flex items-start">
