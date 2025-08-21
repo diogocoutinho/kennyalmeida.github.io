@@ -25,7 +25,7 @@ export default function FloatingContactButton() {
       {isOpen && (
         <div className="absolute bottom-16 right-0 flex flex-col gap-3">
           <a
-            href="https://wa.me/5531992238899?text=Olá, gostaria de saber mais sobre os serviços que vocês oferecem."
+            href="https://wa.me/553182657275?text=Olá, gostaria de saber mais sobre os serviços que vocês oferecem."
             target="_blank"
             rel="noopener noreferrer"
             className="bg-green-500 text-white p-3 rounded-full shadow-lg hover:bg-green-600 transition-colors duration-300 flex items-center gap-2"
